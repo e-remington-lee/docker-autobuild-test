@@ -9,10 +9,13 @@ services:
       context: .
       dockerfile: nginx.Dockerfile
     image:
-      nginx-custom
+      eriklee19/nginx-automated-build
     ports:
       - '80:80'
   web:
-    image: httpd
+    image: eriklee19/httpd-automated-build
+    build:
+      context: .
+      dockerfile: httpd.Dockerfile
     volumes:
       - ./html:/usr/local/apache2/htdocs/
